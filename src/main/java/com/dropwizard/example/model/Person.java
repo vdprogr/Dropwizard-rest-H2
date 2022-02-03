@@ -1,11 +1,10 @@
-package com.dropwizard.example.h2.model;
+package com.dropwizard.example.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.dropwizard.validation.MaxSize;
+
 import javax.validation.constraints.NotNull;
 
 public class Person {
-
 
     private Long id;
 

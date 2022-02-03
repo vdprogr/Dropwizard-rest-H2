@@ -1,6 +1,6 @@
 package com.dropwizard.example.h2.mapper;
 
-import com.dropwizard.example.h2.model.Person;
+import com.dropwizard.example.model.Person;
 import org.jdbi.v3.core.mapper.RowMapper;
 import org.jdbi.v3.core.statement.StatementContext;
 

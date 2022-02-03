@@ -1,5 +1,9 @@
-import com.dropwizard.example.h2.DAO.PersonDAO;
-import com.dropwizard.example.h2.resources.PersonResource;
+package com.dropwizard.example;
+
+import com.dropwizard.example.h2.dao.PersonDao;
+import com.dropwizard.example.resources.PersonResource;
+import com.dropwizard.example.service.PersonService;
+import config.configuration.SimpleConfiguration;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.db.ManagedDataSource;
@@ -15,14 +19,8 @@ public class SimpleApplication extends Application<SimpleConfiguration> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleApplication.class);
 
-    public static void main( String[] args )
-    {
-        try {
-            new SimpleApplication().run(args);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void main( String[] args ) throws Exception {
+        new SimpleApplication().run(args);
     }
 
     @Override
@@ -45,8 +43,9 @@ public class SimpleApplication extends Application<SimpleConfiguration> {
         flywayFactory.build(dataSource).migrate();
 
         /* Register the resources to be used in the project */
-        final PersonDAO personDAO = jdbi.onDemand(PersonDAO.class);
-        final PersonResource personResource = new PersonResource(personDAO);
+        final PersonDao personDao = jdbi.onDemand(PersonDao.class);
+        final PersonService personService = new PersonService(personDao);
+        final PersonResource personResource = new PersonResource(personService);
 
         environment.jersey().register(personResource);
     }
