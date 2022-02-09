@@ -1,7 +1,6 @@
 package com.dropwizard.example.resources;
 
 import com.codahale.metrics.annotation.Timed;
-import com.dropwizard.example.h2.dao.PersonDao;
 import com.dropwizard.example.model.Person;
 import com.dropwizard.example.service.PersonService;
 import org.slf4j.Logger;
@@ -10,8 +9,6 @@ import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
-import java.util.Optional;
 
 @Path("/persons")
 @Produces(MediaType.APPLICATION_JSON)

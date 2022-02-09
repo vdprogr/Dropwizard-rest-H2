@@ -1,9 +1,9 @@
 package com.dropwizard.example;
 
-import com.dropwizard.example.h2.dao.PersonDao;
+import com.dropwizard.example.dao.h2.PersonDao;
 import com.dropwizard.example.resources.PersonResource;
 import com.dropwizard.example.service.PersonService;
-import config.configuration.SimpleConfiguration;
+import configuration.SimpleConfiguration;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.db.ManagedDataSource;

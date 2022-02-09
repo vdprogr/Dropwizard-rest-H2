@@ -1,6 +1,7 @@
-package com.dropwizard.example.h2.dao;
-import com.dropwizard.example.h2.mapper.PersonMapper;
+package com.dropwizard.example.dao.h2;
+
 import com.dropwizard.example.model.Person;
+import com.dropwizard.example.model.mapper.PersonMapper;
 import org.jdbi.v3.sqlobject.config.RegisterRowMapper;
 import org.jdbi.v3.sqlobject.customizer.Bind;
 import org.jdbi.v3.sqlobject.customizer.BindBean;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RegisterRowMapper(PersonMapper.class)
-public interface PersonDao {
+public interface PersonDao{
 
     @SqlQuery("select * from person")
     List<Person> getAll();
@@ -30,3 +31,4 @@ public interface PersonDao {
     @SqlUpdate("delete from person where id = :id")
     int deleteById(@Bind("id") Long id);
 }
+

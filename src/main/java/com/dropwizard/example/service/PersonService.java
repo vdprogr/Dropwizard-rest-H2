@@ -1,6 +1,6 @@
 package com.dropwizard.example.service;
 
-import com.dropwizard.example.h2.dao.PersonDao;
+import com.dropwizard.example.dao.h2.PersonDao;
 import com.dropwizard.example.model.Person;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;

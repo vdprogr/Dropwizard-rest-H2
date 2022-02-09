@@ -1,4 +1,4 @@
-package com.dropwizard.example.h2.mapper;
+package com.dropwizard.example.model.mapper;
 
 import com.dropwizard.example.model.Person;
 import org.jdbi.v3.core.mapper.RowMapper;

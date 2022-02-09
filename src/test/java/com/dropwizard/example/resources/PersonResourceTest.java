@@ -14,6 +14,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -64,7 +65,7 @@ public class PersonResourceTest {
 
     @Test
     public void testGetAllPersonsIfEmpty() {
-        List<Person> persons = List.of();
+        List<Person> persons = Collections.emptyList();
         when(personService.getAll()).thenReturn(persons);
 
         List<Person> result = RULE.target("/persons").request().get(new GenericType<List<Person>>() {});
